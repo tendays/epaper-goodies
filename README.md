@@ -13,7 +13,7 @@ display, gathering information from various data sources such as:
 * and more!
 
 The widgets to render are parametrised in a simple text file specifying
-coordinates of widgets and data sources.
+coordinates of widgets and data sources. See the [list of available widgets](docs/widgets.md).
 
 The application does not interact with the ePaper display directly.
 It will instead produce an image file which you should then pass to a
