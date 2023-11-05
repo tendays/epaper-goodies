@@ -21,6 +21,12 @@ import com.google.common.collect.ImmutableList;
  *
  */
 public class ProgressWidget implements Widget {
+	private final String unit, startLabel, currentLabel;
+	public ProgressWidget(String unit, String start, String current) {
+		this.unit = unit;
+		this.startLabel = start;
+		this.currentLabel = current;
+	}
 
 	@Override
 	public void render(Drawable graphics, int width, int height) {
@@ -51,13 +57,13 @@ public class ProgressWidget implements Widget {
 			graphics.drawLine(1, height - 2, barX, height - 2);
 			
 			graphics.setColor(Color.BLACK);
-			String topText = "Départ: "+ top +"m";
+			String topText = startLabel + ": "+ top + unit;
 			Rectangle2D topBounds = metrics.getStringBounds(topText);
 			int textY = (int)( height - metrics.getAscent());
 			graphics.drawString(topText, 0, textY);
 			
 			graphics.setColor(Color.RED);
-			String currentText = "Papa: "+ current +"m";
+			String currentText = currentLabel +": "+ current + unit;
 			Rectangle2D currentBounds = metrics.getStringBounds(currentText);
 			graphics.drawString(currentText, (int)
 					Math.min(width - currentBounds.getWidth(),

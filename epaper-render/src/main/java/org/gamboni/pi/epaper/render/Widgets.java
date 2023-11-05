@@ -71,16 +71,16 @@ public class Widgets {
 			WidgetFactory.widget("Image", (__, args) -> new ImageWidget(args.getString(), false)),
 			WidgetFactory.widget("Motd", (layout, __) -> new MotdWidget(layout.getMotds())),
 			WidgetFactory.widget("Nagios", (__, args) ->
-			// String cgiUrl, String host, String service, List<String> db, String rrdopts
-			new NagiosWidget(
-					args.getString(),
-					args.getString(),
-					args.getString(),
-					args.getList(),
-					args.getRest())),
-			WidgetFactory.widget("Progress", (__, ___) -> new ProgressWidget()),
-			WidgetFactory.widget("Weather", (config, ___) -> new WeatherWidget(config))
-			);
+					// String cgiUrl, String host, String service, List<String> db, String rrdopts
+					new NagiosWidget(
+							args.getString(),
+							args.getString(),
+							args.getString(),
+							args.getList(),
+							args.getRest())),
+			WidgetFactory.widget("Progress", (__, args) -> new ProgressWidget(args.getString(), args.getString(), args.getString())),
+			WidgetFactory.widget("Weather", (config, args) -> new WeatherWidget(config, args.getInt()))
+	);
 
 	public static boolean parse(Layout layout, IntRectangle rect, String line) {
 		for (WidgetFactory factory : widgetFactories) {

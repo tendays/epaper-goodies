@@ -17,6 +17,10 @@ public class Metrics {
 			this.width = width;
 			this.height = height;
 		}
+
+		public Size scale(double factor) {
+			return new Size((int)(width * factor), (int)(height * factor));
+		}
 	}
 
 	public Metrics(FontMetrics fontMetrics, Graphics2D g, Function<String, Size> iconBounds) {

@@ -32,9 +32,9 @@ public class FloydSteinberg extends Graphics2dDrawable {
 	
 	@Override
 	public void setColor(Color color) {
-		Preconditions.checkArgument(color.getBlue() == color.getGreen());
-		Preconditions.checkArgument(color.getBlue() <= color.getRed());
-		super.setColor(color);
+		int grue = (color.getBlue() + color.getGreen()) / 2;
+
+		super.setColor(new Color(Math.max(color.getRed(), grue), grue, grue));
 	}
 	
 	private class Errors {

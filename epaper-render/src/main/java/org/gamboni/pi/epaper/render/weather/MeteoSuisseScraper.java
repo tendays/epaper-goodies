@@ -97,7 +97,7 @@ public class MeteoSuisseScraper extends CacheFile<MeteoSuisseScraper.Data> {
 
 		String directory = load("forecast-chart/versions.json", ChartVersions.class).currentVersionDirectory;
 		data.weatherDiagram = load("forecast-chart/" +
-				directory + "/fr/" + zip + "00.json", new TypeToken<List<WeatherDiagramItem>>(){});
+				directory + "/fr/" + zip + ".json", new TypeToken<List<WeatherDiagramItem>>(){});
 
 		String weatherReportVersion = load("versions.json", new TypeToken<Map<String, String>>() {
 		}).get("weather-report/fr/west");

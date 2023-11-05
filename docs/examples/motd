@@ -1,0 +1,5 @@
+200x200
+# this is a motd-face, doesn't render anything by itself but contributes data to the Motd widget
+MeteoSuisse 1000
+# Actually render the motd
+30 10 170 190 Motd
